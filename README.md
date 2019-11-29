@@ -2,10 +2,10 @@
 a bash screen reader based on [ImageMagick](https://github.com/ImageMagick/ImageMagick), [xsel](https://github.com/kfish/xsel), [tesseract](https://github.com/tesseract-ocr/tesseract) and occasionally [translate-shell](https://github.com/soimort/translate-shell)
 after execution it allows to select a part of the screen and copies the OCR-ed text content into the clipboard
 
-## installation
+## Installation
 just put it in your `/bin` or somewhere else where your `$PATH` reaches and give it a good `chmod +x`
 
-## usage
+## Usage
 ```
 readscr [OPTIONS]
 ```
