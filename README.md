@@ -10,7 +10,7 @@ just put it in your `/bin` or somewhere else where your `$PATH` reaches and give
 readscr [OPTIONS[
 ```
 ### Options
-- `-l` <lang> language the screen text is in
+- `-l <lang>` language the screen text is in (it's a tesseract parameter - first 3 letters)
 - `-s` speak the text of fetched screen part
 - `-i` option for compatibility with my i3 desktop environment, with it set, utility can have it's i3 keybinding - it just pauses for a second
   
