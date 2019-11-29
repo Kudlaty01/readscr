@@ -1,6 +1,5 @@
 #!/bin/bash
 FN="/tmp/scr_$(date | md5sum | cut -d\  -f1).png"
-notify-send "$FN"
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
