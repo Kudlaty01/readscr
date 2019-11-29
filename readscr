@@ -1,0 +1,36 @@
+#!/bin/bash
+FN="/tmp/scr_$(date | md5sum | cut -d\  -f1).png"
+notify-send "$FN"
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+    key=$1
+    case $key in
+        -i)
+            INTERACTIVE=1
+            shift
+            ;;
+        -s)
+            READ=1
+            shift
+            ;;
+        -l)
+            LNG="$2"
+            shift
+            shift
+            ;;
+        *)
+            LNG="${1:-pol}"
+            shift
+            ;;
+    esac
+done
+LNG=${LNG:-pol}
+set -- "${POSITIONAL[0]}"
+if [ -z ${INTERACTIVE+x} ]; then
+    import "$FN"
+else
+    import -pause 1 "$FN"
+fi
+convert "$FN" -resample 600 "$FN" && tesseract -l $LNG "$FN" - | tee >(xsel -b) >(xargs -0 -I{} notify-send "Copied" '{}') >([ -z $READ ] || trans -speak)
+rm "$FN"
